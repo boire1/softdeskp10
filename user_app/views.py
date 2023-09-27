@@ -20,7 +20,7 @@ def register(request):
             user = form.save(commit=False)
             user.set_password(form.cleaned_data['password1'])
             if user.age < 15:
-                # vous pouvez renvoyer une erreur ou rediriger l'utilisateur
+                # Error message
                 return render(request, 'user_app/error.html', {'message': 'Vous devez avoir plus de 15 ans pour vous inscrire.'})
             user.save()
             # log the user in and redirect them
