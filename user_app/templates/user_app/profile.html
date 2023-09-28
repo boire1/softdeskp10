@@ -11,6 +11,9 @@
         <li>Date d'inscription : {{ user.date_joined|date:"F d, Y" }}</li>
         <!-- Vous pouvez ajouter plus de détails ici -->
     </ul>
-    {% comment %} <a class="btn btn-primary btn-lg" href="#" role="button">Editer le profil</a> {% endcomment %}
+    
+    <div class="mt-3">
+        <a href="{% url 'delete_account' %}" class="btn btn-danger btn-lg">Supprimer le compte</a>
+    </div>
 </div>
 {% endblock %}

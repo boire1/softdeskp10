@@ -38,3 +38,14 @@ from django.shortcuts import redirect
 def some_view(request):
     # ... some code here
     return redirect('token_obtain_pair')
+
+from django.contrib.auth import logout
+from django.shortcuts import render, redirect
+
+def delete_account(request):
+    if request.method == 'POST':
+        user = request.user
+        user.delete()
+        logout(request)
+        return render(request, 'user_app/account_deleted.html')
+    return render(request, 'user_app/delete_account.html')
